@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Red+Hat+Text:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-top: #f5f7ff;
+  --background: #fff;
+  --background-card: #f0f2fa;
+  --text-blue: #63687e;
+  --text-dark-blue: #1e202a;
+
+  --lime-green: #1db489;
+  --bright-red: #dc414c;
+
+  --color-facebook: #198ff5;
+  --color-twitter: #1ca0f2;
+  --color-instagram: linear-gradient(left, #fdc468, #df4996);
+  --color-youtube: #c4032a;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Inter', 'Red Hat Text', sans-serif;
+  font-size: 1.6rem;
+  background: var(--background);
+}
+
+header {
+  background: var(--background-top);
+  height: 25rem;
+  border-radius: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  max-width: 800px;
+  padding-top: 5px;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
+.dark-mode {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+input[type='checkbox'] {
+  position: relative;
+  width: 7rem;
+  height: 3rem;
+  -webkit-appearance: none;
+  background: #aeb3cb;
+  outline: none;
+  border-radius: 2rem;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+input:checked[type='checkbox'] {
+  background: linear-gradient(45deg, #378fe6, #3eda82);
+}
+input[type='checkbox']::before {
+  content: '';
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2rem;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 2 5px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+input:checked[type='checkbox']::before {
+  left: 4rem;
+}
+
+body.dark {
+  background: #1e202a;
+}
+
+header.dark {
+  background: #1f212e;
+}
+
+.cards .dark {
+  background: #252a41;
+}
+
+header.dark h1,
+body.dark h1 {
+  color: #fff;
+}
+
+.media-dashboard h1 {
+  color: var(--text-dark-blue);
+  font-size: 3rem;
+}
+
+.media-dashboard span,
+.dark-mode span {
+  color: var(--text-blue);
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  position: relative;
+  top: -12rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  background: var(--background-card);
+
+  font-size: 1.8rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  width: 100%;
+}
+
+.card div + div {
+  margin-top: 2rem;
+}
+
+.facebook {
+  border-top: var(--color-facebook) solid 0.5rem;
+}
+.twitter {
+  border-top: var(--color-twitter) solid 0.5rem;
+}
+
+.youtube {
+  border-top: var(--color-youtube) solid 0.5rem;
+}
+
+.card.dark .followers .number-followers {
+  color: #fff;
+}
+
+.card.dark .information,
+.card.dark .followers,
+.social-card.dark p {
+  color: #8b97c6;
+}
+
+.social-card.dark span {
+  color: #fff;
+}
+
+.social-card.dark {
+  background: #252a41;
+}
+
+.number-followers {
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.followers p {
+  font-size: 2rem;
+  letter-spacing: 0.6rem;
+}
+
+/* overview days  */
+
+.overviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin: 10px auto 0;
+  gap: 1rem;
+  max-width: 800px;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--background-card);
+
+  border-radius: 0.5rem;
+  width: 100%;
+  padding: 3rem;
+}
+
+.social-card div + div {
+  margin-top: 2rem;
+}
+
+.social-card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-green {
+  color: var(--lime-green);
+}
+
+.text-red {
+  color: var(--bright-red);
+}
+
+.social-card span {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+@media (max-width: 850px) {
+  .followers .number-followers {
+    font-size: 4rem;
+  }
+  .followers span {
+    font-size: 2rem;
+  }
+  .cards {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  nav {
+    flex-direction: column;
+  }
+  .dark-mode {
+    display: flex;
+    justify-content: space-between;
+    max-width: 340px;
+    width: 100%;
+    padding: 2rem;
+  }
+  .cards {
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: static;
+  }
+  .overviews {
+    grid-template-columns: 1fr;
+  }
+  .overviews div {
+    width: 100%;
+  }
+}
